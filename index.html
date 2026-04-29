@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arslan Luxury Wear</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{
+    background:#070707;
+    color:#fff;
+}
+
+/* HEADER */
+header{
+    display:flex;
+    justify-content:space-between;
+    padding:15px 30px;
+    background:rgba(0,0,0,0.6);
+    backdrop-filter:blur(10px);
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:1000;
+}
+header h1{
+    color:#00f7ff;
+    text-shadow:0 0 10px #00f7ff,0 0 20px #00f7ff;
+}
+
+/* MENU */
+.menu-btn{
+    font-size:28px;
+    cursor:pointer;
+}
+.menu{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:#000;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    transform:translateY(-100%);
+    transition:.4s;
+}
+.menu.active{transform:translateY(0);}
+.menu a{
+    font-size:2rem;
+    margin:15px;
+    cursor:pointer;
+}
+.close{
+    position:absolute;
+    top:20px;
+    right:30px;
+    font-size:30px;
+}
+
+/* PAGES */
+.page{display:none;padding:100px 20px;}
+.page.active{display:block;}
+
+/* HERO */
+.hero{
+    height:80vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+.hero h2{
+    font-size:3rem;
+    text-shadow:0 0 15px cyan,0 0 30px cyan;
+}
+.hero p{color:#aaa;margin-top:10px;}
+
+/* SHINY BUTTON */
+button{
+    margin-top:15px;
+    padding:10px 25px;
+    border:none;
+    background:linear-gradient(90deg,#00f7ff,#0088ff);
+    color:#000;
+    border-radius:30px;
+    cursor:pointer;
+    font-weight:bold;
+    box-shadow:0 0 15px #00f7ff;
+    transition:.3s;
+}
+button:hover{
+    transform:scale(1.1);
+    box-shadow:0 0 25px #00f7ff;
+}
+
+/* PRODUCTS */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+    margin-top:20px;
+}
+.card{
+    background:#111;
+    border-radius:15px;
+    overflow:hidden;
+    transition:.3s;
+    box-shadow:0 0 10px rgba(0,255,255,0.1);
+}
+.card:hover{
+    transform:translateY(-10px) scale(1.03);
+    box-shadow:0 0 25px rgba(0,255,255,0.4);
+}
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+.card-content{
+    padding:12px;
+}
+.price{
+    color:#00f7ff;
+    font-weight:bold;
+}
+
+/* ABOUT */
+.about{
+    max-width:800px;
+    margin:auto;
+    text-align:center;
+    line-height:1.8;
+    color:#ccc;
+}
+.about h2{
+    color:#00f7ff;
+    margin-bottom:10px;
+    text-shadow:0 0 10px cyan;
+}
+
+/* CONTACT */
+.contact{
+    max-width:500px;
+    margin:auto;
+}
+input,textarea{
+    width:100%;
+    margin:10px 0;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    background:#111;
+    color:#fff;
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:25px;
+    background:#000;
+    margin-top:40px;
+    color:#777;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>ArslanWear</h1>
+<div class="menu-btn" onclick="openMenu()">☰</div>
+</header>
+
+<!-- MENU -->
+<div class="menu" id="menu">
+<div class="close" onclick="closeMenu()">✕</div>
+<a onclick="go('home')">Home</a>
+<a onclick="go('shop')">Shop</a>
+<a onclick="go('about')">About</a>
+<a onclick="go('contact')">Contact</a>
+</div>
+
+<!-- HOME -->
+<section id="home" class="page active">
+<div class="hero">
+<h2>Luxury Fashion Store</h2>
+<p>Shining • Premium • Modern Style</p>
+<button onclick="go('shop')">Explore Collection</button>
+</div>
+</section>
+
+<!-- SHOP -->
+<section id="shop" class="page">
+<h2 style="text-align:center;color:#00f7ff;text-shadow:0 0 10px cyan;">Our Premium Collection</h2>
+
+<div class="grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b">
+<div class="card-content">
+<h3>Luxury Shirt</h3>
+<p class="price">$25</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1542062703-8b8f2b3fef7c">
+<div class="card-content">
+<h3>Denim Jacket</h3>
+<p class="price">$60</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f">
+<div class="card-content">
+<h3>Premium Hoodie</h3>
+<p class="price">$45</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb">
+<div class="card-content">
+<h3>Black Shirt</h3>
+<p class="price">$30</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1520975922284-9e0fcb2d6b3e">
+<div class="card-content">
+<h3>Classic T-Shirt</h3>
+<p class="price">$20</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1520975693411-4b0f9f3f0f0f">
+<div class="card-content">
+<h3>Winter Coat</h3>
+<p class="price">$80</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="page">
+<div class="about">
+<h2>About Our Brand</h2>
+<p>
+We are a modern luxury clothing brand focused on style, comfort, and quality.  
+Our mission is to deliver premium fashion that makes you feel confident and unique.  
+Every product is designed with attention to detail and modern trends.
+</p>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="page">
+<h2 style="text-align:center;color:#00f7ff;">Contact Us</h2>
+
+<div class="contact">
+<input placeholder="Your Name">
+<input placeholder="Your Email">
+<textarea placeholder="Your Message"></textarea>
+<button>Send Message</button>
+</div>
+</section>
+
+<footer>
+<p>© 2026 Arslan Luxury Wear | Designed with Premium Style</p>
+</footer>
+
+<script>
+function openMenu(){
+    document.getElementById("menu").classList.add("active");
+}
+function closeMenu(){
+    document.getElementById("menu").classList.remove("active");
+}
+function go(id){
+    document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+    document.getElementById(id).classList.add("active");
+    closeMenu();
+}
+</script>
+
+</body>
+</html>
